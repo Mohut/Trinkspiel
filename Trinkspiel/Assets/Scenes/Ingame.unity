@@ -217,6 +217,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1304044274}
   - component: {fileID: 1304044273}
+  - component: {fileID: 1304044275}
   m_Layer: 0
   m_Name: NameSelectScreen
   m_TagString: Untagged
@@ -255,6 +256,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1304044275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1304044272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cb1f7e3887aeae4bb5dc504d2e56b39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameSelectScreen: {fileID: 1304044273}
 --- !u!1 &2007248547
 GameObject:
   m_ObjectHideFlags: 0
