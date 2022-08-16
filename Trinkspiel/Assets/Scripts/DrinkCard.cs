@@ -14,6 +14,10 @@ namespace DM.DrinkCard
        [SerializeField] private Categorie categorie;
        [SerializeField] private int sips;
        [SerializeField] private string description;
+
+       public Categorie Categorie { get => categorie; }
+       public int Sips { get => sips; }
+       public string Description { get => description; }
    }
 }
 

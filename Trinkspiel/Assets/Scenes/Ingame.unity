@@ -224,7 +224,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &962036701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,6 +268,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 817bbb9edf702d04bb21a39b58a255ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 1818880068}
+  drinkCardLists: {fileID: 1818880070}
+  UIDocument: {fileID: 962036701}
 --- !u!1 &1304044272
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,7 +288,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1304044273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -341,6 +344,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1818880069}
   - component: {fileID: 1818880068}
+  - component: {fileID: 1818880071}
+  - component: {fileID: 1818880070}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -360,8 +365,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66bd0cb1637c2854f9871dda432cf224, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameSelectScreen: {fileID: 1304044272}
-  inGameScreen: {fileID: 962036700}
+  inGameScreen: {fileID: 962036703}
+  nameSelectScreen: {fileID: 1304044275}
 --- !u!4 &1818880069
 Transform:
   m_ObjectHideFlags: 0
@@ -377,6 +382,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1818880070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818880067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8941f0c15916ad54e911e8a3f96bfee7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drinkCards:
+  - {fileID: 11400000, guid: 8cb9e8eb854d9304583c39f1726b8fd5, type: 2}
+  - {fileID: 11400000, guid: 0508498ec579cc744b62823d666dd0b9, type: 2}
+  - {fileID: 11400000, guid: b1599c8c94e9b2145b33b46ebde0bcae, type: 2}
+--- !u!114 &1818880071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818880067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ad02e326bf7b8a4fab313888236aa37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 1818880068}
+  nameSelectScreen: {fileID: 1304044272}
+  inGameScreen: {fileID: 962036700}
 --- !u!1 &2007248547
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,19 +5,29 @@ using Button = UnityEngine.UIElements.Button;
 
 public class NameSelectScreen : MonoBehaviour
 {
+    [SerializeField] private GameManager gameManager;
     [SerializeField] private UIDocument nameSelectScreen;
     private VisualElement scrollView;
     private TextField textField;
     private List<Button> nameButtonList = new List<Button>();
     private List<string> nameList;
-    private Event Action showCard;
 
     void Start()
     {
         nameSelectScreen.rootVisualElement.Q<Button>("Add").clicked += AddName;
-        nameSelectScreen.rootVisualElement.Q<Button>("Start").clicked += StartGame;
+        nameSelectScreen.rootVisualElement.Q<Button>("Start").clicked += gameManager.StartGame;
         scrollView = nameSelectScreen.rootVisualElement.Q("unity-content-container");
         textField = nameSelectScreen.rootVisualElement.Q<TextField>("Name");
+    }
+
+    private void OnEnable()
+    {
+        gameManager.startGameEvent += AddNamesToGameManager;
+    }
+
+    private void OnDisable()
+    {
+        gameManager.startGameEvent -= AddNamesToGameManager;
     }
 
     public void AddName()
@@ -33,14 +43,12 @@ public class NameSelectScreen : MonoBehaviour
         scrollView.Remove(button);
     }
 
-    public void StartGame()
+    public void AddNamesToGameManager()
     {
         foreach (Button nameButton in nameButtonList)
         {
             nameList.Add(nameButton.text);
         }
-        
-        GameManager.INSTANCE.SetNames(nameList);
-        GameManager.INSTANCE.StartGame();
+        gameManager.Names = nameList;
     }
 }
