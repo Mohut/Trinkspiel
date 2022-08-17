@@ -1,33 +1,23 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 using Button = UnityEngine.UIElements.Button;
 
 public class NameSelectScreen : MonoBehaviour
 {
-    [SerializeField] private GameManager gameManager;
     [SerializeField] private UIDocument nameSelectScreen;
     private VisualElement scrollView;
     private TextField textField;
     private List<Button> nameButtonList = new List<Button>();
-    private List<string> nameList;
+    private List<string> nameList = new List<string>();
 
     void Start()
     {
         nameSelectScreen.rootVisualElement.Q<Button>("Add").clicked += AddName;
-        nameSelectScreen.rootVisualElement.Q<Button>("Start").clicked += gameManager.StartGame;
+        nameSelectScreen.rootVisualElement.Q<Button>("Start").clicked += StartGame;
         scrollView = nameSelectScreen.rootVisualElement.Q("unity-content-container");
         textField = nameSelectScreen.rootVisualElement.Q<TextField>("Name");
-    }
-
-    private void OnEnable()
-    {
-        gameManager.startGameEvent += AddNamesToGameManager;
-    }
-
-    private void OnDisable()
-    {
-        gameManager.startGameEvent -= AddNamesToGameManager;
     }
 
     public void AddName()
@@ -36,11 +26,19 @@ public class NameSelectScreen : MonoBehaviour
         newName.text = textField.value;
         newName.clicked += delegate { DeleteName(newName); };
         scrollView.Add(newName);
+        nameButtonList.Add(newName);
     }
 
     public void DeleteName(Button button)
     {
         scrollView.Remove(button);
+        nameButtonList.Remove(button);
+    }
+
+    public void StartGame()
+    {
+        AddNamesToGameManager();
+        ChangeScene();
     }
 
     public void AddNamesToGameManager()
@@ -49,6 +47,12 @@ public class NameSelectScreen : MonoBehaviour
         {
             nameList.Add(nameButton.text);
         }
-        gameManager.Names = nameList;
+        GameManager.INSTANCE.Names = nameList;
+        GameManager.INSTANCE.RandomizeNameList();
+    }
+
+    public void ChangeScene()
+    {
+        SceneManager.LoadScene(1);
     }
 }

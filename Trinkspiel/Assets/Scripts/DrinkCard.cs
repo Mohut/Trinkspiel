@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace DM.DrinkCard
 { 
-    public enum Categorie
+    public enum Category
     {
         Normal,
         Notnormal
@@ -11,11 +11,11 @@ namespace DM.DrinkCard
     [CreateAssetMenu(menuName = "Drink Card")]
    public class DrinkCard : ScriptableObject
    {
-       [SerializeField] private Categorie categorie;
+       [SerializeField] private Category categorie;
        [SerializeField] private int sips;
        [SerializeField] private string description;
 
-       public Categorie Categorie { get => categorie; }
+       public Category Categorie { get => categorie; }
        public int Sips { get => sips; }
        public string Description { get => description; }
    }
