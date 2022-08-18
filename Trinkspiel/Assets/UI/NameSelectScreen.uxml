@@ -1,9 +1,9 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <ui:VisualElement name="Root" style="width: 100%; height: 100%; flex-direction: column-reverse;">
         <ui:VisualElement name="ButtonContainer" style="width: 100%; height: 10%; flex-direction: row; justify-content: center;">
-            <ui:TextField picking-mode="Ignore" value="filler text" text="filler text" name="Name" />
-            <ui:Button text="Add&#10;" display-tooltip-when-elided="true" name="Add" />
-            <ui:Button text="Start" display-tooltip-when-elided="true" name="Start" />
+            <ui:TextField picking-mode="Ignore" name="Name" is-delayed="false" style="width: 50%; height: 100%; font-size: 45px; -unity-font-style: normal;" />
+            <ui:Button text="Add&#10;" display-tooltip-when-elided="true" name="Add" style="width: 20%; height: 100%; -unity-text-align: middle-center; white-space: nowrap; font-size: 45px;" />
+            <ui:Button text="Start" display-tooltip-when-elided="true" name="Start" style="height: 100%; width: 20%; font-size: 45px; -unity-text-align: middle-center;" />
         </ui:VisualElement>
         <ui:ScrollView scroll-deceleration-rate="0,135" elasticity="0,1" style="width: 100%; height: 80%;" />
     </ui:VisualElement>
