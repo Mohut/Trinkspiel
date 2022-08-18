@@ -9,8 +9,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager INSTANCE;
     [SerializeField] private DrinkCardLists drinkCardLists;
-    
     private List<string> names = new List<string>();
+    private int currentNameIndex = 10000;
+    private string currentName = "";
     private int stack = 0;
     private DrinkCard drinkCard1;
     private DrinkCard drinkCard2;
@@ -20,6 +21,8 @@ public class GameManager : MonoBehaviour
     public DrinkCard DrinkCard1 { get => drinkCard1; }
     public DrinkCard DrinkCard2 { get => drinkCard2; }
     public DrinkCard DrinkCard3 { get => drinkCard3; }
+    public string CurrentName { get => currentName; }
+    public int Stack { get => stack; }
 
     private void Start()
     {
@@ -35,16 +38,22 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public void RandomizeNameList()
+    public void ChooseRandomName()
     {
-        List<string> shuffled = names.OrderBy(_ => random.Next()).ToList();
-        names = shuffled;
+        int randomNumber = random.Next(names.Count);
+        while (randomNumber == currentNameIndex)
+        {
+            randomNumber = random.Next(names.Count);
+        }
+
+        currentNameIndex = randomNumber;
+        currentName = names[randomNumber];
     }
 
     public void ChooseCards()
     {
-        drinkCard1 = drinkCardLists.GetRandomNormal1Card();
-        drinkCard2 = drinkCardLists.GetRandomNormal2Card();
-        drinkCard3 = drinkCardLists.GetRandomNormal3Card();
+        drinkCard1 = drinkCardLists.GetRandomNormalCard();
+        drinkCard2 = drinkCardLists.GetRandomNormalCard();
+        drinkCard3 = drinkCardLists.GetRandomNormalCard();
     }
 }

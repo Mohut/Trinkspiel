@@ -8,32 +8,50 @@ public class InGameScreen : MonoBehaviour
 {
     [SerializeField] private UIDocument inGameDocument;
     [SerializeField] private UIDocument cardDocument;
+    private VisualElement inGameDocumentRoot;
+    private VisualElement cardDocumentRoot;
+    
     private Button button1;
     private Button button2;
     private Button button3;
-    private VisualTreeAsset cardTree;
-    private VisualElement card;
+
     private Label categoryTopText;
     private Label categoryBottomText;
     private Label descriptionText;
     private Label sipText;
 
+    private Label stack;
+    private Label playerName;
+
     private void Start()
     {
         GameManager.INSTANCE.ChooseCards();
+        GameManager.INSTANCE.ChooseRandomName();
         
-        button1 = inGameDocument.rootVisualElement.Q<Button>("1Sip");
-        button2 = inGameDocument.rootVisualElement.Q<Button>("2Sips");
-        button3 = inGameDocument.rootVisualElement.Q<Button>("3Sips");
-
-        categoryTopText = cardDocument.rootVisualElement.Q<Label>("CategoryTop");
-        categoryBottomText = cardDocument.rootVisualElement.Q<Label>("CategoryBottom");
-        descriptionText = cardDocument.rootVisualElement.Q<Label>("Description");
-        sipText = cardDocument.rootVisualElement.Q<Label>("SipText");
+        inGameDocumentRoot = inGameDocument.rootVisualElement;
+        cardDocumentRoot = cardDocument.rootVisualElement;
+        
+        button1 = inGameDocumentRoot.Q<Button>("1Sip");
+        button2 = inGameDocumentRoot.Q<Button>("2Sips");
+        button3 = inGameDocumentRoot.Q<Button>("3Sips");
         
         button1.clicked += ShowCard(GameManager.INSTANCE.DrinkCard1);
         button2.clicked += ShowCard(GameManager.INSTANCE.DrinkCard2);
         button3.clicked += ShowCard(GameManager.INSTANCE.DrinkCard3);
+
+        button1.text = GameManager.INSTANCE.DrinkCard1.Sips.ToString();
+        button2.text = GameManager.INSTANCE.DrinkCard2.Sips.ToString();
+        button3.text = GameManager.INSTANCE.DrinkCard3.Sips.ToString();
+
+        stack = inGameDocumentRoot.Q<Label>("Stack");
+        stack.text = GameManager.INSTANCE.Stack.ToString();
+        playerName = inGameDocumentRoot.Q<Label>("Name");
+        playerName.text = GameManager.INSTANCE.CurrentName;
+
+        categoryTopText = cardDocumentRoot.Q<Label>("CategoryTop");
+        categoryBottomText = cardDocumentRoot.Q<Label>("CategoryBottom");
+        descriptionText = cardDocumentRoot.Q<Label>("Description");
+        sipText = cardDocumentRoot.Q<Label>("SipText");
     }
 
     private void OnDestroy()
@@ -50,8 +68,8 @@ public class InGameScreen : MonoBehaviour
     
     public void EnableCard()
     {
-        cardDocument.enabled = true;
-        inGameDocument.enabled = false;
+        cardDocumentRoot.style.display = DisplayStyle.Flex;
+        inGameDocumentRoot.style.display = DisplayStyle.None;
     }
     
     public void FillCard(DrinkCard drinkCard)

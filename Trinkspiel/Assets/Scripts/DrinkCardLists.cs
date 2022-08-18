@@ -9,15 +9,7 @@ public class DrinkCardLists : MonoBehaviour
     [SerializeField] private List<DrinkCard> drinkCards;
     private static Random random = new Random();
 
-    public DrinkCard GetRandomNormal1Card()
-    {
-        return drinkCards[random.Next(drinkCards.Count)];
-    }
-    public DrinkCard GetRandomNormal2Card()
-    {
-        return drinkCards[random.Next(drinkCards.Count)];
-    }
-    public DrinkCard GetRandomNormal3Card()
+    public DrinkCard GetRandomNormalCard()
     {
         return drinkCards[random.Next(drinkCards.Count)];
     }

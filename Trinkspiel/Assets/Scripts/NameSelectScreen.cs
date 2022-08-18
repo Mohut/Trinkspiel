@@ -48,7 +48,6 @@ public class NameSelectScreen : MonoBehaviour
             nameList.Add(nameButton.text);
         }
         GameManager.INSTANCE.Names = nameList;
-        GameManager.INSTANCE.RandomizeNameList();
     }
 
     public void ChangeScene()
