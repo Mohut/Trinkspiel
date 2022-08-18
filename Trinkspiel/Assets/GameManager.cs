@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     private DrinkCard drinkCard1;
     private DrinkCard drinkCard2;
     private DrinkCard drinkCard3;
+    private DrinkCard currentDrinkCard;
     private Random random = new Random();
     public List<string> Names { set => names = value; }
     public DrinkCard DrinkCard1 { get => drinkCard1; }
@@ -25,6 +26,7 @@ public class GameManager : MonoBehaviour
     public string CurrentName { get => currentName; }
     public int Stack { get => stack; }
     public int MaxStack { get => maxStack; }
+    public DrinkCard CurrentDrinkCard { get => currentDrinkCard; set => currentDrinkCard = value; }
 
     private void Start()
     {
@@ -57,6 +59,11 @@ public class GameManager : MonoBehaviour
         drinkCard1 = drinkCardLists.GetRandomNormalCard();
         drinkCard2 = drinkCardLists.GetRandomNormalCard();
         drinkCard3 = drinkCardLists.GetRandomNormalCard();
+    }
+
+    public void AddToStack(int sips)
+    {
+        stack += sips;
     }
 
     public void ResetStack()

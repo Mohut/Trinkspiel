@@ -86,7 +86,7 @@ public class InGameScreen : MonoBehaviour
     
     public Action ShowCard(DrinkCard drinkCard)
     {
-        return delegate { EnableCard(); FillCard(drinkCard); };
+        return delegate { EnableCard(); FillCard(drinkCard); SetCurrentDrinkCard(drinkCard); };
     }
     
     public void EnableCard()
@@ -104,8 +104,15 @@ public class InGameScreen : MonoBehaviour
         cardStack.text = GameManager.INSTANCE.Stack.ToString();
     }
 
+    public void SetCurrentDrinkCard(DrinkCard drinkCard)
+    {
+        GameManager.INSTANCE.CurrentDrinkCard = drinkCard;
+    }
+
     public void CompletedTask()
     {
+        GameManager.INSTANCE.AddToStack(GameManager.INSTANCE.CurrentDrinkCard.Sips);
+        
         if (GameManager.INSTANCE.Stack >= GameManager.INSTANCE.MaxStack)
         {
             cardDocumentRoot.style.display = DisplayStyle.None;
@@ -124,6 +131,7 @@ public class InGameScreen : MonoBehaviour
         cardDocumentRoot.style.display = DisplayStyle.None;
         drinkInfoDocumentRoot.style.display = DisplayStyle.Flex;
         drinkInfoText.text = GameManager.INSTANCE.CurrentName + " trinkt " + GameManager.INSTANCE.Stack + " Schlücke";
+        GameManager.INSTANCE.ResetStack();
     }
 
     public void NewRound()
@@ -139,9 +147,13 @@ public class InGameScreen : MonoBehaviour
         stack.text = GameManager.INSTANCE.Stack.ToString();
         
         ResetButtons();
-        
+
         button1.clicked += ShowCard(GameManager.INSTANCE.DrinkCard1);
         button2.clicked += ShowCard(GameManager.INSTANCE.DrinkCard2);
         button3.clicked += ShowCard(GameManager.INSTANCE.DrinkCard3);
+        
+        button1.text = GameManager.INSTANCE.DrinkCard1.Sips.ToString();
+        button2.text = GameManager.INSTANCE.DrinkCard2.Sips.ToString();
+        button3.text = GameManager.INSTANCE.DrinkCard3.Sips.ToString();
     }
 }
