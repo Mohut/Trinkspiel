@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager INSTANCE;
     [SerializeField] private DrinkCardLists drinkCardLists;
+    [SerializeField] private int maxStack = 10;
     private List<string> names = new List<string>();
     private int currentNameIndex = 10000;
     private string currentName = "";
@@ -23,6 +24,7 @@ public class GameManager : MonoBehaviour
     public DrinkCard DrinkCard3 { get => drinkCard3; }
     public string CurrentName { get => currentName; }
     public int Stack { get => stack; }
+    public int MaxStack { get => maxStack; }
 
     private void Start()
     {
@@ -55,5 +57,10 @@ public class GameManager : MonoBehaviour
         drinkCard1 = drinkCardLists.GetRandomNormalCard();
         drinkCard2 = drinkCardLists.GetRandomNormalCard();
         drinkCard3 = drinkCardLists.GetRandomNormalCard();
+    }
+
+    public void ResetStack()
+    {
+        stack = 0;
     }
 }
