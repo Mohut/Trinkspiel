@@ -315,6 +315,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameSelectScreen: {fileID: 1768236400}
+  styleSheet: {fileID: 7433441132597879392, guid: 229fb52ad5114424d883a6ba5819cf59, type: 3}
 --- !u!114 &1768236400
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7,6 +7,7 @@ using Button = UnityEngine.UIElements.Button;
 public class NameSelectScreen : MonoBehaviour
 {
     [SerializeField] private UIDocument nameSelectScreen;
+    [SerializeField] private StyleSheet styleSheet;
     private VisualElement scrollView;
     private TextField textField;
     private List<Button> nameButtonList = new List<Button>();
@@ -24,9 +25,11 @@ public class NameSelectScreen : MonoBehaviour
     {
         Button newName = new Button();
         newName.text = textField.value;
+        newName.styleSheets.Add(styleSheet);
         newName.clicked += delegate { DeleteName(newName); };
         scrollView.Add(newName);
         nameButtonList.Add(newName);
+        textField.value = "";
     }
 
     public void DeleteName(Button button)
