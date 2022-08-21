@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using DM.DrinkCard;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "Event")]
 public class Event : ScriptableObject
 {
     [SerializeField] private Category category;

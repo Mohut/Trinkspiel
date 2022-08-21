@@ -31,6 +31,9 @@ public class InGameScreen : MonoBehaviour
     private Label drinkInfoText;
     private Button continueButton;
 
+    private Button eventContinueButton;
+    private Label eventText;
+
     private void Start()
     {
         GameManager.INSTANCE.SummarizeCards();
@@ -67,8 +70,13 @@ public class InGameScreen : MonoBehaviour
         slider = cardDocumentRoot.Q<Slider>("DoneSlider");
         drinkInfoText = drinkInfoDocumentRoot.Q<Label>("InfoText");
         continueButton = drinkInfoDocumentRoot.Q<Button>("Continue");
+        eventText = eventInfoRoot.Q<Label>("EventText");
         continueButton.clicked += NewRound;
+
+        eventContinueButton = eventInfoRoot.Q<Button>("Continue");
+        eventContinueButton.clicked += NewRound;
         
+        eventInfoRoot.style.display = DisplayStyle.None;
         cardDocumentRoot.style.display = DisplayStyle.None;
         drinkInfoDocumentRoot.style.display = DisplayStyle.None;
     }
@@ -147,12 +155,20 @@ public class InGameScreen : MonoBehaviour
 
     public void NewRound()
     {
+        GameManager.INSTANCE.CheckForEventRound();
+        if (GameManager.INSTANCE.EventRound)
+        {
+            GameManager.INSTANCE.ChooseEvent();
+            eventText.text = GameManager.INSTANCE.CurrentEvent.Description;
+            drinkInfoDocumentRoot.style.display = DisplayStyle.None;
+            cardDocumentRoot.style.display = DisplayStyle.None;
+            eventInfoRoot.style.display = DisplayStyle.Flex;
+            inGameDocumentRoot.style.display = DisplayStyle.None;
+            return;
+        }
+        
         GameManager.INSTANCE.ChooseCards();
         GameManager.INSTANCE.ChooseRandomName();
-
-        drinkInfoDocumentRoot.style.display = DisplayStyle.None;
-        cardDocumentRoot.style.display = DisplayStyle.None;
-        inGameDocumentRoot.style.display = DisplayStyle.Flex;
 
         playerName.text = GameManager.INSTANCE.CurrentName;
         stack.text = GameManager.INSTANCE.Stack.ToString();
@@ -166,5 +182,10 @@ public class InGameScreen : MonoBehaviour
         button1.text = GameManager.INSTANCE.DrinkCard1.Sips.ToString();
         button2.text = GameManager.INSTANCE.DrinkCard2.Sips.ToString();
         button3.text = GameManager.INSTANCE.DrinkCard3.Sips.ToString();
+        
+        drinkInfoDocumentRoot.style.display = DisplayStyle.None;
+        cardDocumentRoot.style.display = DisplayStyle.None;
+        eventInfoRoot.style.display = DisplayStyle.None;
+        inGameDocumentRoot.style.display = DisplayStyle.Flex;
     }
 }

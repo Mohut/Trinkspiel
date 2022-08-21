@@ -296,6 +296,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0508498ec579cc744b62823d666dd0b9, type: 2}
   childish:
   - {fileID: 11400000, guid: b1599c8c94e9b2145b33b46ebde0bcae, type: 2}
+  standardEvents:
+  - {fileID: 11400000, guid: 3b181ee7af1b20c429facd83c61269e5, type: 2}
+  movementEvents:
+  - {fileID: 11400000, guid: 3b181ee7af1b20c429facd83c61269e5, type: 2}
+  hotEvents:
+  - {fileID: 11400000, guid: 3b181ee7af1b20c429facd83c61269e5, type: 2}
+  niceVibesEvents:
+  - {fileID: 11400000, guid: 3b181ee7af1b20c429facd83c61269e5, type: 2}
+  childishEvents:
+  - {fileID: 11400000, guid: 3b181ee7af1b20c429facd83c61269e5, type: 2}
 --- !u!114 &1594302182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -368,6 +378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cb1f7e3887aeae4bb5dc504d2e56b39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  drinkCardLists: {fileID: 1594302181}
   nameSelectScreen: {fileID: 1768236400}
   styleSheet: {fileID: 7433441132597879392, guid: 229fb52ad5114424d883a6ba5819cf59, type: 3}
   deckSelectScreen: {fileID: 20227390}

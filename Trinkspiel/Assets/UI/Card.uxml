@@ -14,7 +14,7 @@
         </ui:VisualElement>
         <ui:Label text="10" display-tooltip-when-elided="true" name="Stack" style="width: 80%; height: 10%; -unity-text-align: middle-center; font-size: 45px;" />
         <ui:VisualElement style="align-items: center; justify-content: center; height: 10%; width: 80%; flex-direction: row;">
-            <ui:Slider picking-mode="Ignore" value="42" high-value="100" name="DoneSlider" class="unity-base-slider__dragger unity-base-slider__tracker unity-base-slider__drag-container" style="height: 1%; width: 50%; background-color: rgba(56, 56, 56, 0); color: rgba(220, 20, 60, 0); -unity-text-outline-color: rgba(0, 0, 0, 0);" />
+            <ui:Slider picking-mode="Ignore" value="50" high-value="100" name="DoneSlider" class="unity-base-slider__dragger unity-base-slider__tracker unity-base-slider__drag-container" style="height: 1%; width: 50%; background-color: rgba(56, 56, 56, 0); color: rgba(220, 20, 60, 0); -unity-text-outline-color: rgba(0, 0, 0, 0);" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

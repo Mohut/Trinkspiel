@@ -7,6 +7,7 @@ using Button = UnityEngine.UIElements.Button;
 
 public class NameSelectScreen : MonoBehaviour
 {
+    [SerializeField] private DrinkCardLists drinkCardLists;
     [SerializeField] private UIDocument nameSelectScreen;
     [SerializeField] private StyleSheet styleSheet;
     [SerializeField] private UIDocument deckSelectScreen;
@@ -78,6 +79,9 @@ public class NameSelectScreen : MonoBehaviour
 
     public void StartGame()
     {
+        if (!drinkCardLists.CheckForDecks())
+            return;
+        
         GameManager.INSTANCE.SummarizeCards();
         AddNamesToGameManager();
         ChangeScene();
@@ -117,7 +121,7 @@ public class NameSelectScreen : MonoBehaviour
 
     public Action ChangeButton(Button button)
     {
-        return delegate { ChangeButtonColor(button); };
+        return delegate { ChangeButtonColor(button); CheckIfDeckIsActive(); };
     }
 
     public void ChangeButtonColor(Button button)
@@ -129,6 +133,18 @@ public class NameSelectScreen : MonoBehaviour
         else
         {
             button.style.backgroundColor = Color.red;
+        }
+    }
+
+    public void CheckIfDeckIsActive()
+    {
+        if (!drinkCardLists.CheckForDecks())
+        {
+            startButton.SetEnabled(false);
+        }
+        else
+        {
+            startButton.SetEnabled(true);
         }
     }
 }

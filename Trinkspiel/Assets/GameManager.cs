@@ -18,7 +18,8 @@ public class GameManager : MonoBehaviour
     private string currentName = "";
     private string otherName = "";
     private int stack = 0;
-    private bool eventRound;
+    private bool eventRound = false;
+    private Event currentEvent;
     private DrinkCard drinkCard1;
     private DrinkCard drinkCard2;
     private DrinkCard drinkCard3;
@@ -33,6 +34,8 @@ public class GameManager : MonoBehaviour
     public int Stack { get => stack; }
     public int MaxStack { get => maxStack; }
     public DrinkCard CurrentDrinkCard { get => currentDrinkCard; set => currentDrinkCard = value; }
+    public bool EventRound { get { return eventRound; }}
+    public Event CurrentEvent { get { return currentEvent; } }
 
     private void Start()
     {
@@ -75,6 +78,11 @@ public class GameManager : MonoBehaviour
         drinkCard3 = drinkCardLists.GetRandomCard();
     }
 
+    public void ChooseEvent()
+    {
+        currentEvent = drinkCardLists.GetRandomEvent();
+    }
+
     public void AddToStack(int sips)
     {
         stack += sips;
@@ -97,10 +105,10 @@ public class GameManager : MonoBehaviour
 
     public Action EnableDisableDecks(int index)
     {
-        return delegate { EnableDisableDecks(index); };
+        return delegate { EnableDisable(index); };
     }
 
-    public void EnableDisable(int index)
+    private void EnableDisable(int index)
     {
         switch (index)
         {
