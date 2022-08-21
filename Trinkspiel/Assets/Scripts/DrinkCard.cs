@@ -4,8 +4,11 @@ namespace DM.DrinkCard
 { 
     public enum Category
     {
-        Normal,
-        Notnormal
+        Standard,
+        Bewegung,
+        Heiß,
+        NiceVibes,
+        Kindisch
     }
     
     [CreateAssetMenu(menuName = "Drink Card")]

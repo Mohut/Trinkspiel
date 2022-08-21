@@ -1,18 +1,18 @@
 using System;
 using DM.DrinkCard;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
-using Button = UnityEngine.UIElements.Button;
 
 public class InGameScreen : MonoBehaviour
 {
     [SerializeField] private UIDocument inGameDocument;
     [SerializeField] private UIDocument cardDocument;
     [SerializeField] private UIDocument drinkInfoDocument;
+    [SerializeField] private UIDocument eventInfo;
     private VisualElement inGameDocumentRoot;
     private VisualElement cardDocumentRoot;
     private VisualElement drinkInfoDocumentRoot;
+    private VisualElement eventInfoRoot;
     
     private Button button1;
     private Button button2;
@@ -33,16 +33,15 @@ public class InGameScreen : MonoBehaviour
 
     private void Start()
     {
+        GameManager.INSTANCE.SummarizeCards();
         GameManager.INSTANCE.ChooseCards();
         GameManager.INSTANCE.ChooseRandomName();
 
         inGameDocumentRoot = inGameDocument.rootVisualElement;
         cardDocumentRoot = cardDocument.rootVisualElement;
         drinkInfoDocumentRoot = drinkInfoDocument.rootVisualElement;
-        
-        cardDocumentRoot.style.display = DisplayStyle.None;
-        drinkInfoDocumentRoot.style.display = DisplayStyle.None;
-        
+        eventInfoRoot = eventInfo.rootVisualElement;
+
         button1 = inGameDocumentRoot.Q<Button>("1Sip");
         button2 = inGameDocumentRoot.Q<Button>("2Sips");
         button3 = inGameDocumentRoot.Q<Button>("3Sips");
@@ -65,10 +64,13 @@ public class InGameScreen : MonoBehaviour
         descriptionText = cardDocumentRoot.Q<Label>("Description");
         sipText = cardDocumentRoot.Q<Label>("SipText");
         cardStack = cardDocumentRoot.Q<Label>("Stack");
-        slider = cardDocumentRoot.Q<Slider>("Slider");
+        slider = cardDocumentRoot.Q<Slider>("DoneSlider");
         drinkInfoText = drinkInfoDocumentRoot.Q<Label>("InfoText");
         continueButton = drinkInfoDocumentRoot.Q<Button>("Continue");
         continueButton.clicked += NewRound;
+        
+        cardDocumentRoot.style.display = DisplayStyle.None;
+        drinkInfoDocumentRoot.style.display = DisplayStyle.None;
     }
 
     private void Update()
@@ -108,7 +110,7 @@ public class InGameScreen : MonoBehaviour
     {
         categoryTopText.text = drinkCard.Categorie.ToString();
         categoryBottomText.text = drinkCard.Categorie.ToString();
-        descriptionText.text = drinkCard.Description;
+        descriptionText.text = drinkCard.Description.Replace("***", GameManager.INSTANCE.OtherName);
         sipText.text = drinkCard.Sips.ToString();
         cardStack.text = GameManager.INSTANCE.Stack.ToString();
     }
@@ -147,7 +149,7 @@ public class InGameScreen : MonoBehaviour
     {
         GameManager.INSTANCE.ChooseCards();
         GameManager.INSTANCE.ChooseRandomName();
-        
+
         drinkInfoDocumentRoot.style.display = DisplayStyle.None;
         cardDocumentRoot.style.display = DisplayStyle.None;
         inGameDocumentRoot.style.display = DisplayStyle.Flex;
