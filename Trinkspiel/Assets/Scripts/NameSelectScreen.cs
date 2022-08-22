@@ -11,10 +11,15 @@ public class NameSelectScreen : MonoBehaviour
     [SerializeField] private UIDocument nameSelectScreen;
     [SerializeField] private StyleSheet styleSheet;
     [SerializeField] private UIDocument deckSelectScreen;
+    [SerializeField] private Color greenColor;
+    [SerializeField] private Color redColor;
+    private StyleColor green;
+    private StyleColor red;
     private VisualElement scrollView;
     private TextField textField;
     private Button continueButton;
     private Button startButton;
+    private Button addNameButton;
     private List<Button> nameButtonList = new List<Button>();
     private List<string> nameList = new List<string>();
     private Button standardButton;
@@ -22,10 +27,12 @@ public class NameSelectScreen : MonoBehaviour
     private Button hotButton;
     private Button niceVibesButton;
     private Button childishButton;
+    private bool addButtonEnabled = false;
 
     void Start()
     {
-        nameSelectScreen.rootVisualElement.Q<Button>("Add").clicked += AddName;
+        addNameButton = nameSelectScreen.rootVisualElement.Q<Button>("Add");
+        addNameButton.clicked += AddName;
         scrollView = nameSelectScreen.rootVisualElement.Q("unity-content-container");
         textField = nameSelectScreen.rootVisualElement.Q<TextField>("Name");
         continueButton = nameSelectScreen.rootVisualElement.Q<Button>("Start");
@@ -52,6 +59,9 @@ public class NameSelectScreen : MonoBehaviour
         hotButton.clicked += ChangeButton(hotButton);
         niceVibesButton.clicked += ChangeButton(niceVibesButton);
         childishButton.clicked += ChangeButton(childishButton);
+
+        green = new StyleColor(greenColor);
+        red = new StyleColor(redColor);
     }
 
     public void AddName()
@@ -60,6 +70,11 @@ public class NameSelectScreen : MonoBehaviour
         if (textField.value.Length >= 11)
         {
             textField.value = textField.value.Substring(0, 10);
+        }
+
+        if (textField.value.Length == 0)
+        {
+            textField.value = "Namenlos";
         }
         newName.text = textField.value;
         newName.styleSheets.Add(styleSheet);
@@ -126,13 +141,13 @@ public class NameSelectScreen : MonoBehaviour
 
     public void ChangeButtonColor(Button button)
     {
-        if (button.style.backgroundColor == Color.red)
+        if (button.style.backgroundColor == red)
         {
-            button.style.backgroundColor = Color.green;
+            button.style.backgroundColor = green;
         }
         else
         {
-            button.style.backgroundColor = Color.red;
+            button.style.backgroundColor = red;
         }
     }
 

@@ -1,5 +1,5 @@
 .unity-base-slider__dragger {
-    color: crimson;
+    color: rgb(127, 127, 127);
     border-left-color: rgb(255, 255, 255);
     border-right-color: rgb(255, 255, 255);
     border-top-color: rgb(255, 255, 255);
@@ -14,7 +14,7 @@
     border-bottom-left-radius: 15px;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(205, 205, 205);
     width: 99px;
     height: 101px;
     justify-content: center;
@@ -23,7 +23,7 @@
 }
 
 .unity-base-slider__tracker {
-    background-color: rgb(255, 0, 0);
+    background-color: rgb(184, 72, 47);
     justify-content: center;
     align-items: center;
     flex-direction: column;
