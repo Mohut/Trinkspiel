@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b26c3c2f67ab854d8c6e1c0d8ea9caf, type: 3}
-  m_Name: A1
+  m_Script: {fileID: 11500000, guid: 35a48644303457d418c0f6125f9a401b, type: 3}
+  m_Name: C12
   m_EditorClassIdentifier: 
-  category: 0
-  description: "Die dickste und d\xFCnnste Person trinken einen Schluck"
+  categorie: 1
+  sips: 3
+  description: "Mache eine Liegest\xFCtze mit einem Arm"
