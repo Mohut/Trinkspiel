@@ -272,6 +272,11 @@ MonoBehaviour:
   cardDocument: {fileID: 2007248548}
   drinkInfoDocument: {fileID: 1442334282}
   eventInfo: {fileID: 1834859187}
+  standardColor: {r: 0.8117648, g: 0.5019608, b: 0.18431373, a: 1}
+  movementColor: {r: 0.43921572, g: 0.7137255, b: 0.40000004, a: 1}
+  hotColor: {r: 0.5764706, g: 0.25490198, b: 0.21568629, a: 1}
+  niceVibesColor: {r: 0.6313726, g: 0.5647059, b: 0.34901962, a: 1}
+  childishColor: {r: 0.30588236, g: 0.48235297, b: 0.49411768, a: 1}
 --- !u!1 &1442334281
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,6 +9,11 @@ public class InGameScreen : MonoBehaviour
     [SerializeField] private UIDocument cardDocument;
     [SerializeField] private UIDocument drinkInfoDocument;
     [SerializeField] private UIDocument eventInfo;
+    [SerializeField] private Color standardColor;
+    [SerializeField] private Color movementColor;
+    [SerializeField] private Color hotColor;
+    [SerializeField] private Color niceVibesColor;
+    [SerializeField] private Color childishColor;
     private VisualElement inGameDocumentRoot;
     private VisualElement cardDocumentRoot;
     private VisualElement drinkInfoDocumentRoot;
@@ -17,6 +22,9 @@ public class InGameScreen : MonoBehaviour
     private Button button1;
     private Button button2;
     private Button button3;
+    private Label button1Category;
+    private Label button2Category;
+    private Label button3Category;
 
     private Label categoryTopText;
     private Label categoryBottomText;
@@ -24,6 +32,7 @@ public class InGameScreen : MonoBehaviour
     private Label sipText;
     private Label cardStack;
     private Slider slider;
+    private IMGUIContainer cardBackground;
 
     private Label stack;
     private Label playerName;
@@ -48,14 +57,12 @@ public class InGameScreen : MonoBehaviour
         button1 = inGameDocumentRoot.Q<Button>("1Sip");
         button2 = inGameDocumentRoot.Q<Button>("2Sips");
         button3 = inGameDocumentRoot.Q<Button>("3Sips");
-        
-        button1.clicked += ShowCard(GameManager.INSTANCE.DrinkCard1);
-        button2.clicked += ShowCard(GameManager.INSTANCE.DrinkCard2);
-        button3.clicked += ShowCard(GameManager.INSTANCE.DrinkCard3);
 
-        button1.text = GameManager.INSTANCE.DrinkCard1.Sips.ToString();
-        button2.text = GameManager.INSTANCE.DrinkCard2.Sips.ToString();
-        button3.text = GameManager.INSTANCE.DrinkCard3.Sips.ToString();
+        button1Category = inGameDocumentRoot.Q<Label>("Category1");
+        button2Category = inGameDocumentRoot.Q<Label>("Category2");
+        button3Category = inGameDocumentRoot.Q<Label>("Category3");
+
+        SubscribeNewCards();
 
         stack = inGameDocumentRoot.Q<Label>("Stack");
         stack.text = GameManager.INSTANCE.Stack.ToString();
@@ -68,6 +75,7 @@ public class InGameScreen : MonoBehaviour
         sipText = cardDocumentRoot.Q<Label>("SipText");
         cardStack = cardDocumentRoot.Q<Label>("Stack");
         slider = cardDocumentRoot.Q<Slider>("DoneSlider");
+        cardBackground = cardDocumentRoot.Q<IMGUIContainer>("Background");
         drinkInfoText = drinkInfoDocumentRoot.Q<Label>("InfoText");
         continueButton = drinkInfoDocumentRoot.Q<Button>("Continue");
         eventText = eventInfoRoot.Q<Label>("EventText");
@@ -116,6 +124,7 @@ public class InGameScreen : MonoBehaviour
     
     public void FillCard(DrinkCard drinkCard)
     {
+        cardBackground.style.backgroundColor = ChooseColor(drinkCard.Categorie);
         categoryTopText.text = drinkCard.Categorie.ToString();
         categoryBottomText.text = drinkCard.Categorie.ToString();
         descriptionText.text = drinkCard.Description.Replace("***", GameManager.INSTANCE.OtherName);
@@ -175,17 +184,72 @@ public class InGameScreen : MonoBehaviour
         
         ResetButtons();
 
-        button1.clicked += ShowCard(GameManager.INSTANCE.DrinkCard1);
-        button2.clicked += ShowCard(GameManager.INSTANCE.DrinkCard2);
-        button3.clicked += ShowCard(GameManager.INSTANCE.DrinkCard3);
-        
-        button1.text = GameManager.INSTANCE.DrinkCard1.Sips.ToString();
-        button2.text = GameManager.INSTANCE.DrinkCard2.Sips.ToString();
-        button3.text = GameManager.INSTANCE.DrinkCard3.Sips.ToString();
+        SubscribeNewCards();
         
         drinkInfoDocumentRoot.style.display = DisplayStyle.None;
         cardDocumentRoot.style.display = DisplayStyle.None;
         eventInfoRoot.style.display = DisplayStyle.None;
         inGameDocumentRoot.style.display = DisplayStyle.Flex;
+    }
+
+    public StyleColor ChooseColor(Category category)
+    {
+        switch (category)
+        {
+            case Category.Standard:
+                return new StyleColor(standardColor);
+            case Category.Bewegung:
+                return new StyleColor(movementColor);
+            case Category.Heiß:
+                return new StyleColor(hotColor);
+            case Category.NiceVibes:
+                return new StyleColor(niceVibesColor);
+            case Category.Kindisch:
+                return new StyleColor(childishColor);
+        }
+
+        return new StyleColor(Color.black);
+    }
+
+    public void SubscribeNewCards()
+    {
+        button1.clicked += ShowCard(GameManager.INSTANCE.DrinkCard1);
+        button2.clicked += ShowCard(GameManager.INSTANCE.DrinkCard2);
+        button3.clicked += ShowCard(GameManager.INSTANCE.DrinkCard3);
+
+        button1.text = GameManager.INSTANCE.DrinkCard1.Sips.ToString();
+        button2.text = GameManager.INSTANCE.DrinkCard2.Sips.ToString();
+        button3.text = GameManager.INSTANCE.DrinkCard3.Sips.ToString();
+
+        if (GameManager.INSTANCE.DrinkCard1.Categorie == Category.NiceVibes)
+        {
+            button1Category.text = "Nice Vibes";
+        }
+        else
+        {
+            button1Category.text = GameManager.INSTANCE.DrinkCard1.Categorie.ToString();
+        }
+        
+        if (GameManager.INSTANCE.DrinkCard2.Categorie == Category.NiceVibes)
+        {
+            button2Category.text = "Nice Vibes";
+        }
+        else
+        {
+            button2Category.text = GameManager.INSTANCE.DrinkCard2.Categorie.ToString();
+        }
+        
+        if (GameManager.INSTANCE.DrinkCard3.Categorie == Category.NiceVibes)
+        {
+            button3Category.text = "Nice Vibes";
+        }
+        else
+        {
+            button3Category.text = GameManager.INSTANCE.DrinkCard3.Categorie.ToString();
+        }
+        
+        button1.style.backgroundColor = ChooseColor(GameManager.INSTANCE.DrinkCard1.Categorie);
+        button2.style.backgroundColor = ChooseColor(GameManager.INSTANCE.DrinkCard2.Categorie);
+        button3.style.backgroundColor = ChooseColor(GameManager.INSTANCE.DrinkCard3.Categorie);
     }
 }
