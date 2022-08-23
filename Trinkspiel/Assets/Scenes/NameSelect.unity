@@ -438,8 +438,8 @@ MonoBehaviour:
   nameSelectScreen: {fileID: 1768236400}
   styleSheet: {fileID: 7433441132597879392, guid: 229fb52ad5114424d883a6ba5819cf59, type: 3}
   deckSelectScreen: {fileID: 20227390}
-  greenColor: {r: 0.4431373, g: 0.7176471, b: 0.41176474, a: 1}
-  redColor: {r: 0.7607844, g: 0.3137255, b: 0.21568629, a: 1}
+  pressedButton: {fileID: 21300092, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+  notPressedButton: {fileID: 21300090, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
 --- !u!114 &1768236400
 MonoBehaviour:
   m_ObjectHideFlags: 0

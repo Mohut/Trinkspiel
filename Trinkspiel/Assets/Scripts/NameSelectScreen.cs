@@ -11,10 +11,10 @@ public class NameSelectScreen : MonoBehaviour
     [SerializeField] private UIDocument nameSelectScreen;
     [SerializeField] private StyleSheet styleSheet;
     [SerializeField] private UIDocument deckSelectScreen;
-    [SerializeField] private Color greenColor;
-    [SerializeField] private Color redColor;
-    private StyleColor green;
-    private StyleColor red;
+    [SerializeField] private Sprite pressedButton;
+    [SerializeField] private Sprite notPressedButton;
+    private StyleBackground pressed;
+    private StyleBackground notPressed;
     private VisualElement scrollView;
     private TextField textField;
     private Button continueButton;
@@ -27,7 +27,6 @@ public class NameSelectScreen : MonoBehaviour
     private Button hotButton;
     private Button niceVibesButton;
     private Button childishButton;
-    private bool addButtonEnabled = false;
 
     void Start()
     {
@@ -60,8 +59,8 @@ public class NameSelectScreen : MonoBehaviour
         niceVibesButton.clicked += ChangeButton(niceVibesButton);
         childishButton.clicked += ChangeButton(childishButton);
 
-        green = new StyleColor(greenColor);
-        red = new StyleColor(redColor);
+        pressed = new StyleBackground(pressedButton);
+        notPressed = new StyleBackground(notPressedButton);
     }
 
     public void AddName()
@@ -141,13 +140,13 @@ public class NameSelectScreen : MonoBehaviour
 
     public void ChangeButtonColor(Button button)
     {
-        if (button.style.backgroundColor == red)
+        if (button.style.backgroundImage.Equals(pressed))
         {
-            button.style.backgroundColor = green;
+            button.style.backgroundImage = notPressed;
         }
         else
         {
-            button.style.backgroundColor = red;
+            button.style.backgroundImage = pressed;
         }
     }
 
