@@ -61,6 +61,12 @@ public class NameSelectScreen : MonoBehaviour
 
         pressed = new StyleBackground(pressedButton);
         notPressed = new StyleBackground(notPressedButton);
+        
+        standardButton.style.backgroundImage = pressed;
+        movementButton.style.backgroundImage = pressed;
+        hotButton.style.backgroundImage = pressed;
+        niceVibesButton.style.backgroundImage = pressed;
+        childishButton.style.backgroundImage = pressed;
     }
 
     public void AddName()
