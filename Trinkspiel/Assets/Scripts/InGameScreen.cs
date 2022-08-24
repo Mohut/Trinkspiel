@@ -18,6 +18,7 @@ public class InGameScreen : MonoBehaviour
     private VisualElement cardDocumentRoot;
     private VisualElement drinkInfoDocumentRoot;
     private VisualElement eventInfoRoot;
+    private bool lastRoundEvent = false;
     
     private Button button1;
     private Button button2;
@@ -141,15 +142,23 @@ public class InGameScreen : MonoBehaviour
     {
         cardDocumentRoot.style.display = DisplayStyle.None;
         drinkInfoDocumentRoot.style.display = DisplayStyle.Flex;
-        drinkInfoText.text = GameManager.INSTANCE.CurrentName + " trinkt " + GameManager.INSTANCE.Stack + " Schlücke";
+        if (GameManager.INSTANCE.Stack == 1)
+        {
+            drinkInfoText.text = GameManager.INSTANCE.CurrentName + " trinkt einen Schluck";
+        }
+        else
+        {
+            drinkInfoText.text = GameManager.INSTANCE.CurrentName + " trinkt " + GameManager.INSTANCE.Stack + " Schlücke";
+        }
         GameManager.INSTANCE.ResetStack();
     }
 
     public void NewRound()
     {
         GameManager.INSTANCE.CheckForEventRound();
-        if (GameManager.INSTANCE.EventRound)
+        if (GameManager.INSTANCE.EventRound && !lastRoundEvent)
         {
+            lastRoundEvent = true;
             GameManager.INSTANCE.ChooseEvent();
             eventText.text = GameManager.INSTANCE.CurrentEvent.Description;
             drinkInfoDocumentRoot.style.display = DisplayStyle.None;
@@ -158,6 +167,8 @@ public class InGameScreen : MonoBehaviour
             inGameDocumentRoot.style.display = DisplayStyle.None;
             return;
         }
+
+        lastRoundEvent = false;
         
         GameManager.INSTANCE.ChooseCards();
         GameManager.INSTANCE.ChooseRandomName();

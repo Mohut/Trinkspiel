@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     private int currentNameIndex = 10000;
     private string currentName = "";
     private string otherName = "";
-    private int stack = 0;
+    private int stack = 1;
     private bool eventRound = false;
     private Event currentEvent;
     private DrinkCard drinkCard1;
@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviour
 
     public void ResetStack()
     {
-        stack = 0;
+        stack = 1;
     }
 
     public void SummarizeCards()
