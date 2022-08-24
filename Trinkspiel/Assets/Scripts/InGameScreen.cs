@@ -29,7 +29,8 @@ public class InGameScreen : MonoBehaviour
     private Label descriptionText;
     private Label sipText;
     private Label cardStack;
-    private Slider slider;
+    private Button yesButton;
+    private Button noButton;
     private IMGUIContainer cardBackground;
 
     private Label stack;
@@ -70,12 +71,15 @@ public class InGameScreen : MonoBehaviour
         descriptionText = cardDocumentRoot.Q<Label>("Description");
         sipText = cardDocumentRoot.Q<Label>("SipText");
         cardStack = cardDocumentRoot.Q<Label>("Stack");
-        slider = cardDocumentRoot.Q<Slider>("DoneSlider");
+        yesButton = cardDocumentRoot.Q<Button>("Yes");
+        noButton = cardDocumentRoot.Q<Button>("No");
         cardBackground = cardDocumentRoot.Q<IMGUIContainer>("Background");
         drinkInfoText = drinkInfoDocumentRoot.Q<Label>("InfoText");
         continueButton = drinkInfoDocumentRoot.Q<Button>("Continue");
         eventText = eventInfoRoot.Q<Label>("EventText");
         continueButton.clicked += NewRound;
+        yesButton.clicked += CompletedTask;
+        noButton.clicked += NotCompletedTask;
 
         eventContinueButton = eventInfoRoot.Q<Button>("Continue");
         eventContinueButton.clicked += NewRound;
@@ -83,21 +87,6 @@ public class InGameScreen : MonoBehaviour
         eventInfoRoot.style.display = DisplayStyle.None;
         cardDocumentRoot.style.display = DisplayStyle.None;
         drinkInfoDocumentRoot.style.display = DisplayStyle.None;
-    }
-
-    private void Update()
-    {
-        if (slider.value <= 0)
-        {
-            slider.value = 50;
-            NotCompletedTask();
-        }
-
-        if (slider.value >= 100)
-        {
-            slider.value = 50;
-            CompletedTask();
-        }
     }
 
     private void ResetButtons()
