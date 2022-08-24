@@ -79,7 +79,7 @@ public class InGameScreen : MonoBehaviour
 
         eventContinueButton = eventInfoRoot.Q<Button>("Continue");
         eventContinueButton.clicked += NewRound;
-        
+
         eventInfoRoot.style.display = DisplayStyle.None;
         cardDocumentRoot.style.display = DisplayStyle.None;
         drinkInfoDocumentRoot.style.display = DisplayStyle.None;

@@ -99,7 +99,7 @@ public class GameManager : MonoBehaviour
 
     public void CheckForEventRound()
     {
-        eventRound = random.Next(6) == 1 ? true : false;
+        eventRound = random.Next(4) == 1 ? true : false;
     }
 
     public Action EnableDisableDecks(int index)

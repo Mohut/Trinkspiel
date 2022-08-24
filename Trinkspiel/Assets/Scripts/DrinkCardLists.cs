@@ -67,6 +67,7 @@ public class DrinkCardLists : MonoBehaviour
 
     public Event GetRandomEvent()
     {
+        Debug.Log(eventCards.Count);
         return eventCards[random.Next(eventCards.Count)];
     }
 
