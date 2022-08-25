@@ -1,0 +1,18 @@
+Button {
+    transition-property: scale;
+    transition-duration: 0.5s;
+    transition-delay: 0s;
+    scale: 0 0;
+    width: 100%;
+    height: 200px;
+    font-size: 50px;
+    color: rgba(0, 0, 0, 255);
+    -unity-font-definition: url('project://database/Assets/Acme/Acme-Regular%20SDF.asset?fileID=11400000&guid=40c4636d41a415b4583d0eaa8d4d7125&type=2#Acme-Regular SDF');
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url('project://database/Assets/Sprites/2D%20Casual%20UI/Sprite/GUI.png?fileID=21300020&guid=1eaee135ce037439d925cee5e41ce026&type=3#GUI_10');
+    -unity-text-outline-color: rgba(0, 0, 0, 0);
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+}

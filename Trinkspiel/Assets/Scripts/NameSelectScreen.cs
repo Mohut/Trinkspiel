@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -7,9 +8,9 @@ using Button = UnityEngine.UIElements.Button;
 
 public class NameSelectScreen : MonoBehaviour
 {
+    [SerializeField] private StyleSheet styleSheet;
     [SerializeField] private DrinkCardLists drinkCardLists;
     [SerializeField] private UIDocument nameSelectScreen;
-    [SerializeField] private StyleSheet styleSheet;
     [SerializeField] private UIDocument deckSelectScreen;
     [SerializeField] private Sprite pressedButton;
     [SerializeField] private Sprite notPressedButton;
@@ -87,14 +88,13 @@ public class NameSelectScreen : MonoBehaviour
         scrollView.Add(newName);
         nameButtonList.Add(newName);
         textField.value = "";
+        StartCoroutine(ShowButton(newName));
         CheckIfStartPossible();
     }
 
     public void DeleteName(Button button)
     {
-        scrollView.Remove(button);
-        nameButtonList.Remove(button);
-        CheckIfStartPossible();
+        StartCoroutine(HideButton(button));
     }
 
     public void StartGame()
@@ -166,5 +166,21 @@ public class NameSelectScreen : MonoBehaviour
         {
             startButton.SetEnabled(true);
         }
+    }
+    
+    IEnumerator ShowButton(Button button)
+    {
+        yield return null;
+        button.style.scale = new StyleScale(new Scale(Vector3.one));
+    }
+
+    IEnumerator HideButton(Button button)
+    {
+        yield return null;
+        button.style.scale = new StyleScale(new Scale(Vector3.zero));
+        yield return new WaitForSeconds(0.5f);
+        scrollView.Remove(button);
+        nameButtonList.Remove(button);
+        CheckIfStartPossible();
     }
 }
