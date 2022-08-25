@@ -124,7 +124,7 @@ public class NameSelectScreen : MonoBehaviour
 
     public void ChangeScene()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 
     public void CheckIfStartPossible()

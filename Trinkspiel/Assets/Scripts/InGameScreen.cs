@@ -112,7 +112,7 @@ public class InGameScreen : MonoBehaviour
     {
         cardBackground.style.backgroundImage = ChooseSprite(drinkCard.Categorie);
         descriptionText.text = drinkCard.Description.Replace("***", GameManager.INSTANCE.OtherName);
-        sipText.text = drinkCard.Sips.ToString();
+        sipText.text = "+"  + drinkCard.Sips;
         cardStack.text = GameManager.INSTANCE.Stack.ToString();
     }
 
@@ -211,9 +211,9 @@ public class InGameScreen : MonoBehaviour
         button2.clicked += ShowCard(GameManager.INSTANCE.DrinkCard2);
         button3.clicked += ShowCard(GameManager.INSTANCE.DrinkCard3);
 
-        button1.text = GameManager.INSTANCE.DrinkCard1.Sips.ToString();
-        button2.text = GameManager.INSTANCE.DrinkCard2.Sips.ToString();
-        button3.text = GameManager.INSTANCE.DrinkCard3.Sips.ToString();
+        button1.text = "+" + GameManager.INSTANCE.DrinkCard1.Sips;
+        button2.text = "+" + GameManager.INSTANCE.DrinkCard2.Sips;
+        button3.text = "+" + GameManager.INSTANCE.DrinkCard3.Sips;
 
         if (GameManager.INSTANCE.DrinkCard1.Categorie == Category.NiceVibes)
         {
