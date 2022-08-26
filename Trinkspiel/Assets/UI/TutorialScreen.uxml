@@ -1,8 +1,17 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:VisualElement name="Root" style="width: 100%; height: 100%; justify-content: center;">
-        <ui:VisualElement name="1" style="width: 100%; height: 20%; flex-direction: row; justify-content: center;">
-            <ui:IMGUIContainer style="width: 150px; height: 150px; background-image: url(&apos;project://database/Assets/Sprites/2D%20Casual%20UI/Sprite/Beer.png?fileID=21300000&amp;guid=74c933b4fac733644b1bcaf99e8dfc46&amp;type=3#Beer&apos;);" />
-            <ui:Label text="hjflllllllllllllllllllllllspdkijfdfkj" display-tooltip-when-elided="true" style="width: 50%; height: 100%; white-space: normal; color: rgba(255, 255, 255, 255); font-size: 54px;" />
+    <ui:VisualElement name="Root" style="width: 100%; height: 100%; justify-content: space-around;">
+        <ui:Label text="Regeln" display-tooltip-when-elided="true" name="Regeln" style="color: rgba(255, 255, 255, 255); font-size: 80px; -unity-text-align: middle-center;" />
+        <ui:VisualElement name="1" style="width: 100%; height: 20%; flex-direction: row; justify-content: space-around; align-items: stretch;">
+            <ui:IMGUIContainer name="Beer" style="width: 150px; height: 150px; background-image: url(&apos;project://database/Assets/Sprites/2D%20Casual%20UI/Sprite/Beer.png?fileID=21300000&amp;guid=74c933b4fac733644b1bcaf99e8dfc46&amp;type=3#Beer&apos;); justify-content: center;">
+                <ui:Label text="8" display-tooltip-when-elided="true" name="Sips" style="width: 80%; height: 70%; -unity-font-definition: url(&apos;project://database/Assets/Acme/Acme-Regular%20SDF.asset?fileID=11400000&amp;guid=40c4636d41a415b4583d0eaa8d4d7125&amp;type=2#Acme-Regular SDF&apos;); font-size: 50px; color: rgba(0, 0, 0, 255); -unity-text-align: lower-center;" />
+            </ui:IMGUIContainer>
+            <ui:Label text="Das ist der Trinkstack. Die Person die ihn über 10 füllt darf die Anzahl an Schlücke verteilen" display-tooltip-when-elided="true" name="Description" style="width: 50%; height: 100%; white-space: normal; color: rgb(255, 255, 255); font-size: 25px; -unity-text-align: upper-center;" />
         </ui:VisualElement>
+        <ui:IMGUIContainer name="2" style="width: 100%; height: 20%; flex-direction: row; align-items: center; justify-content: space-around;">
+            <ui:Label text="Suche dir eine der drei Karten aus und mache die Aufgabe darauf unm den Stack zu erhöhen" display-tooltip-when-elided="true" style="color: rgba(255, 255, 255, 255); white-space: normal; width: 50%; height: 100%; font-size: 25px; -unity-text-align: middle-center;" />
+            <ui:IMGUIContainer name="Card" style="width: 100px; height: 150px; background-image: url(&apos;project://database/Assets/Sprites/2D%20Casual%20UI/Sprite/Orange%20-%20Copy.png?fileID=21300000&amp;guid=bef64fe008a77ba4c99e3a5ef73bbc06&amp;type=3#Orange - Copy&apos;);">
+                <ui:Label text="+2" display-tooltip-when-elided="true" name="Sips" style="width: 100%; height: 100%; color: rgba(0, 0, 0, 255); -unity-text-align: middle-center; font-size: 30px;" />
+            </ui:IMGUIContainer>
+        </ui:IMGUIContainer>
     </ui:VisualElement>
 </ui:UXML>
