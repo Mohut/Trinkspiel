@@ -160,6 +160,14 @@ public class InGameScreen : MonoBehaviour
         {
             lastRoundEvent = true;
             GameManager.INSTANCE.ChooseEvent();
+            if (GameManager.INSTANCE.CurrentEvent.Category == Category.NiceVibes)
+            {
+                eventInfoRoot.Q<Label>("Event").text = "Nice-Vibes-Event";
+            }
+            else
+            {
+                eventInfoRoot.Q<Label>("Event").text = GameManager.INSTANCE.CurrentEvent.Category + "-Event";
+            }
             eventText.text = GameManager.INSTANCE.CurrentEvent.Description;
             drinkInfoDocumentRoot.style.display = DisplayStyle.None;
             cardDocumentRoot.style.display = DisplayStyle.None;
