@@ -53,7 +53,7 @@ public class NameSelectScreen : MonoBehaviour
         hotButton.clicked += GameManager.INSTANCE.EnableDisableDecks(3);
         niceVibesButton.clicked += GameManager.INSTANCE.EnableDisableDecks(4);
         childishButton.clicked += GameManager.INSTANCE.EnableDisableDecks(5);
-        
+
         standardButton.clicked += ChangeButton(standardButton);
         movementButton.clicked += ChangeButton(movementButton);
         hotButton.clicked += ChangeButton(hotButton);
@@ -68,6 +68,8 @@ public class NameSelectScreen : MonoBehaviour
         hotButton.style.backgroundImage = pressed;
         niceVibesButton.style.backgroundImage = pressed;
         childishButton.style.backgroundImage = pressed;
+        
+        CheckCardAmount();
     }
 
     public void AddName()
@@ -166,8 +168,14 @@ public class NameSelectScreen : MonoBehaviour
         {
             startButton.SetEnabled(true);
         }
+        CheckCardAmount();
     }
-    
+
+    public void CheckCardAmount()
+    {
+        startButton.text = "Starten mit " + GameManager.INSTANCE.CardAmount + " Karten";
+    }
+
     IEnumerator ShowButton(Button button)
     {
         yield return null;

@@ -207,7 +207,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0, g: 0.07058824, b: 0.25490198, a: 0}
+  m_BackGroundColor: {r: 0.254717, g: 0.254717, b: 0.254717, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -310,6 +310,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3e0ab506137880142ab247b2c1dd7577, type: 2}
   - {fileID: 11400000, guid: b3a3eb9c7aacffb4fbcbda91e45a7c02, type: 2}
   - {fileID: 11400000, guid: 0e650e183da2c3d4c9616273f1728c9c, type: 2}
+  - {fileID: 11400000, guid: 03aa3184463fecd449842724abcc0c02, type: 2}
   movement:
   - {fileID: 11400000, guid: 3f286b3d399df2640b1e250b149f013f, type: 2}
   - {fileID: 11400000, guid: 7bc335cd5db36934cbcd284624dcce39, type: 2}
@@ -333,6 +334,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 58b472f37c128564e89e9028c7801c81, type: 2}
   - {fileID: 11400000, guid: c7341d094601f404e85aeafdd2aec341, type: 2}
   - {fileID: 11400000, guid: 74afe1d280924be458d89e8160a58e16, type: 2}
+  - {fileID: 11400000, guid: d2102ee20bf885f4b9abab0dfba7d3c3, type: 2}
+  - {fileID: 11400000, guid: 1162ec59500d78f4b8c344eea6770c1c, type: 2}
   niceVibes:
   - {fileID: 11400000, guid: 1954db741ce53b54aad979ed84d187f8, type: 2}
   - {fileID: 11400000, guid: fdf71515935688c42b8e1936eb0deaf5, type: 2}
@@ -342,6 +345,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8932e78f5efbf324f9c3490408b276d1, type: 2}
   - {fileID: 11400000, guid: d2f0dab674bce4e4982351645e672a13, type: 2}
   - {fileID: 11400000, guid: 59b56e57a41034945b807cff443d667b, type: 2}
+  - {fileID: 11400000, guid: cb683cd1fba8a6b43a899d2142ef328f, type: 2}
+  - {fileID: 11400000, guid: 8241509afb8a14748939ba092be0b843, type: 2}
+  - {fileID: 11400000, guid: d4acd3459e768c04683fde194ea3d7b6, type: 2}
+  - {fileID: 11400000, guid: 3cb2042dd2c5f5946876dc6860dac116, type: 2}
   childish:
   - {fileID: 11400000, guid: b4f794ec4b0c7744ca435221f5244700, type: 2}
   - {fileID: 11400000, guid: 53a14e02f147468469ff40909cd8db11, type: 2}
@@ -351,17 +358,34 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 61589e84c70fe4e438bff26adb96d237, type: 2}
   - {fileID: 11400000, guid: 12b8340f2d9589946ab6a010985833cb, type: 2}
   - {fileID: 11400000, guid: 8b404039ea1318a46ab1bcf8b06dc03e, type: 2}
+  - {fileID: 11400000, guid: 2f0a3859f1b658440804c33196240277, type: 2}
+  - {fileID: 11400000, guid: 6ec5a268a02baba4787a72cfcd3db9ee, type: 2}
+  - {fileID: 11400000, guid: cf3f8b8ac5c1de444b2a40c3ced5ec40, type: 2}
   standardEvents:
   - {fileID: 11400000, guid: 85abd4b40d3775447af3b0f2322adb44, type: 2}
+  - {fileID: 11400000, guid: 1b9d28f83564d8346916348850e5ad55, type: 2}
+  - {fileID: 11400000, guid: 8bd55bfb957ba5b49a2d9de13fdba3f7, type: 2}
+  - {fileID: 11400000, guid: 16c730289bd6328449e7c569cd865deb, type: 2}
   movementEvents:
   - {fileID: 11400000, guid: 7b282eb3c21ba654c9001264a19fae1b, type: 2}
+  - {fileID: 11400000, guid: 954401209af4699458027b67294e9a5c, type: 2}
+  - {fileID: 11400000, guid: ede0004b25cb7eb4a8abd2e361a2b571, type: 2}
+  - {fileID: 11400000, guid: 36bdba86bf99fbb49b4c82010a1a7e01, type: 2}
   hotEvents:
   - {fileID: 11400000, guid: 513436ccddbb2a346819ecb9dbedb75d, type: 2}
+  - {fileID: 11400000, guid: 8865b7f6125b8fb4fba0c96ad23bca2b, type: 2}
+  - {fileID: 11400000, guid: e5e77df0407b7434b8a1644a01310879, type: 2}
+  - {fileID: 11400000, guid: 8a0f51699ac0983419662efdec25bdcc, type: 2}
   niceVibesEvents:
   - {fileID: 11400000, guid: f4d5a5903c2db394583653a763b5fd36, type: 2}
   - {fileID: 11400000, guid: d5924ee715d96ff4cb53d7418657c9f6, type: 2}
+  - {fileID: 11400000, guid: 7cbbd056f8e1cfa47916a6f24bb47d11, type: 2}
+  - {fileID: 11400000, guid: 989f8308214803242b85d78c89f1ca71, type: 2}
   childishEvents:
   - {fileID: 11400000, guid: 22284d0f7922eb54fb4ad27cc53b0510, type: 2}
+  - {fileID: 11400000, guid: 2716b657caec9544fab3bb573a3781eb, type: 2}
+  - {fileID: 11400000, guid: 8ee0ab2c9a3f1384088d46f7340473db, type: 2}
+  - {fileID: 11400000, guid: b92ed1e01df678546af330f8f9d7aa4a, type: 2}
 --- !u!114 &1594302182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -421,7 +445,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1768236399
 MonoBehaviour:
   m_ObjectHideFlags: 0

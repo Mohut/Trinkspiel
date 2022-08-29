@@ -2,8 +2,8 @@
     <Style src="project://database/Assets/UI/USS/Slider.uss?fileID=7433441132597879392&amp;guid=beab35809591b354d82c5e526a4afdb3&amp;type=3#Slider" />
     <ui:VisualElement style="width: 100%; height: 100%; align-items: center; justify-content: space-around;">
         <ui:VisualElement style="width: 80%; height: 15%; align-items: center; justify-content: center;">
-            <ui:Label display-tooltip-when-elided="true" name="StackBackground" style="width: 200px; height: 200px; -unity-text-align: middle-center; font-size: 146px; -unity-font-definition: url(&apos;project://database/Assets/Acme/Acme-Regular%20SDF.asset?fileID=11400000&amp;guid=40c4636d41a415b4583d0eaa8d4d7125&amp;type=2#Acme-Regular SDF&apos;); background-image: url(&apos;project://database/Assets/Sprites/2D%20Casual%20UI/Sprite/Beer.png?fileID=21300000&amp;guid=74c933b4fac733644b1bcaf99e8dfc46&amp;type=3#Beer&apos;); padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; flex-direction: column-reverse;">
-                <ui:Label text="10" display-tooltip-when-elided="true" name="Stack" style="width: 85%; height: 75%; color: rgb(0, 0, 0); font-size: 80px;" />
+            <ui:Label display-tooltip-when-elided="true" name="StackBackground" style="width: 150px; height: 150px; -unity-text-align: middle-center; font-size: 146px; -unity-font-definition: url(&apos;project://database/Assets/Acme/Acme-Regular%20SDF.asset?fileID=11400000&amp;guid=40c4636d41a415b4583d0eaa8d4d7125&amp;type=2#Acme-Regular SDF&apos;); background-image: url(&apos;project://database/Assets/Sprites/2D%20Casual%20UI/Sprite/Beer.png?fileID=21300000&amp;guid=74c933b4fac733644b1bcaf99e8dfc46&amp;type=3#Beer&apos;); padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; flex-direction: column-reverse;">
+                <ui:Label text="10" display-tooltip-when-elided="true" name="Stack" style="width: 85%; height: 75%; color: rgb(0, 0, 0); font-size: 60px;" />
             </ui:Label>
         </ui:VisualElement>
         <ui:VisualElement name="CardElement" style="height: 585px; min-width: auto; width: 90%; align-items: center; justify-content: flex-start;">

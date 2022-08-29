@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public static GameManager INSTANCE;
     [SerializeField] private DrinkCardLists drinkCardLists;
     [SerializeField] private int maxStack = 10;
-    private List<DrinkCard> drinkCards;
+    private List<DrinkCard> drinkCards = new List<DrinkCard>();
     private List<Event> eventCards;
     private List<string> names = new List<string>();
     private int currentNameIndex = 10000;
@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     private DrinkCard drinkCard3;
     private DrinkCard currentDrinkCard;
     private Random random = new Random();
+    private int cardAmount = 0;
     public List<string> Names { set => names = value; }
     public DrinkCard DrinkCard1 { get => drinkCard1; }
     public DrinkCard DrinkCard2 { get => drinkCard2; }
@@ -35,6 +36,8 @@ public class GameManager : MonoBehaviour
     public DrinkCard CurrentDrinkCard { get => currentDrinkCard; set => currentDrinkCard = value; }
     public bool EventRound { get { return eventRound; }}
     public Event CurrentEvent { get { return currentEvent; } }
+    public List<DrinkCard> DrinkCards { get { return drinkCards; } }
+    public int CardAmount { get { return cardAmount; } set { cardAmount = value; } }
 
     private void Start()
     {
@@ -48,6 +51,12 @@ public class GameManager : MonoBehaviour
         }
         
         DontDestroyOnLoad(gameObject);
+        
+        cardAmount += drinkCardLists.Standard.Count;
+        cardAmount += drinkCardLists.Movement.Count;
+        cardAmount += drinkCardLists.Hot.Count;
+        cardAmount += drinkCardLists.NiceVibes.Count;
+        cardAmount += drinkCardLists.Childish.Count;
     }
 
     public void ChooseRandomName()

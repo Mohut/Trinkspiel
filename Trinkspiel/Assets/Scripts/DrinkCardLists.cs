@@ -26,6 +26,13 @@ public class DrinkCardLists : MonoBehaviour
     private List<DrinkCard> drinkCards = new List<DrinkCard>();
     private List<Event> eventCards = new List<Event>();
     private static Random random = new Random();
+
+    public List<DrinkCard> Standard { get => standard; }
+    public List<DrinkCard> Movement { get => movement; }
+    public List<DrinkCard> Hot { get => hot; }
+    public List<DrinkCard> NiceVibes { get => niceVibes; }
+    public List<DrinkCard> Childish { get => childish; }
+
     public void SummarizeCards()
     {
         drinkCards.Clear();
@@ -74,26 +81,71 @@ public class DrinkCardLists : MonoBehaviour
     public void EnableDisableStandard()
     {
         standardActive = !standardActive;
+        
+        if (standardActive)
+        {
+            GameManager.INSTANCE.CardAmount += standard.Count;
+        }
+        else
+        {
+            GameManager.INSTANCE.CardAmount -= standard.Count;
+        }
     }
     
     public void EnableDisableMovement()
     {
         movementActive = !movementActive;
+
+        if (movementActive)
+        {
+            GameManager.INSTANCE.CardAmount += movement.Count;
+        }
+        else
+        {
+            GameManager.INSTANCE.CardAmount -= movement.Count;
+        }
     }
     
     public void EnableDisableHot()
     {
         hotActive = !hotActive;
+
+        if (hotActive)
+        {
+            GameManager.INSTANCE.CardAmount += hot.Count;
+        }
+        else
+        {
+            GameManager.INSTANCE.CardAmount -= hot.Count;
+        }
     }
     
     public void EnableDisableNiceVibes()
     {
         niceVibesActive = !niceVibesActive;
+
+        if (niceVibesActive)
+        {
+            GameManager.INSTANCE.CardAmount += niceVibes.Count;
+        }
+        else
+        {
+            GameManager.INSTANCE.CardAmount -= niceVibes.Count;
+        }
     }
     
     public void EnableDisableChildish()
     {
         childishActive = !childishActive;
+
+        if (childishActive)
+        {
+            GameManager.INSTANCE.CardAmount += childish.Count;
+        }
+        else
+        {
+            GameManager.INSTANCE.CardAmount -= childish.Count;
+        }
     }
 
     public bool CheckForDecks()
