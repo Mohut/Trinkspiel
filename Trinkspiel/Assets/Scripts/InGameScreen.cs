@@ -168,7 +168,7 @@ public class InGameScreen : MonoBehaviour
             {
                 eventInfoRoot.Q<Label>("Event").text = GameManager.INSTANCE.CurrentEvent.Category + "-Event";
             }
-            eventText.text = GameManager.INSTANCE.CurrentEvent.Description;
+            eventText.text = GameManager.INSTANCE.CurrentEvent.Description.Replace("***", GameManager.INSTANCE.OtherName);
             drinkInfoDocumentRoot.style.display = DisplayStyle.None;
             cardDocumentRoot.style.display = DisplayStyle.None;
             eventInfoRoot.style.display = DisplayStyle.Flex;
